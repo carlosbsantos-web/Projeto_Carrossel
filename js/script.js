@@ -1,63 +1,32 @@
 
-// class Person {
-
-//     constructor(nome, sobrenome, idade) {
-
-//         this.nome = nome,
-//         this.sobrenome = sobrenome,
-//         this.idade = idade
+const  list = document.querySelectorAll('.item');
+const  prev = document.querySelector('#prev');
+const  next = document.querySelector('#next');
 
 
-//     }
+let  count = list.length
+let  active = 0;
 
-//     nomeCompleto = () => {
 
-//         return `Olá sou ${this.nome} e meu sobrenone é ${this.sobrenome} ${this.idade}`
+next.addEventListener('click', () => {
 
-//     }
-// };
+    let activeOld = document.querySelector('.active');
+    activeOld.classList.remove('active');
 
-// const elemento = new Person('Carlos', 'Santos', 39);
-// const elemento1= new Person('Ana', 'Maria', 21);
-// const elemento2 = new Person('Bruna', 'Paula', 19);
-// console.log(elemento.nomeCompleto());
-// console.log(elemento.nomeCompleto());
-// console.log(elemento.nomeCompleto());
-
-// const pessoas = {
+    active = active >= count -1 ? 0 : active + 1
+    list[active].classList.add('active');
     
-//     nome: 'Carlos', 
-//     sobrenome: 'Santos', 
-//     idade: 39,
-
-//     dadosCompleto: function() {
- 
-//         return this.nome + " " + this.sobrenome + " " + this.idade
-//     }
-
-// };
-
-// // document.querySelector('#demo').innerHTML = pessoas.dadosCompleto();
-
-// console.log(pessoas.dadosCompleto());
-
-// const pessoas = ('Carlos Batista')
-// console.log(pessoas.replace('Batista', 'Santos'));
-
-const number = 12;
-
-if( number != 12) {
-
-    try {
-
-console.log('Bom dia')
-
     
-    } catch (erro) {
+});
 
-        console.log('Erro ao entrar: Código 182')
+prev.addEventListener('click', () => {
 
-    }
-
-};
-
+    let  activeOld = document.querySelector('.active');
+    activeOld.classList.remove('active');
+    
+    active = active <= 0 ? count -1 : active -1
+    list[active].classList.add('active');
+    
+    
+    });
+    
